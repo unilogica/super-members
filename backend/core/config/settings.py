@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
+WSGI_APPLICATION = 'core.config.wsgi.application'
 
 DATABASE_ROUTERS = (
     'django_tenants.routers.TenantSyncRouter',
