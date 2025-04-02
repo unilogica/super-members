@@ -84,11 +84,11 @@ import os
 DATABASES = {
     'default': {
         'ENGINE': 'django_tenants.postgresql_backend',
-        'NAME': os.getenv('POSTGRES_DATABASE'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('POSTGRES_HOST'),
-        'PORT': os.getenv('POSTGRES_PORT', '5432'),
+        'NAME': os.getenv('REPLIT_POSTGRES_DB_NAME'),
+        'USER': os.getenv('REPLIT_POSTGRES_USER'),
+        'PASSWORD': os.getenv('REPLIT_POSTGRES_PASS'),
+        'HOST': os.getenv('REPLIT_POSTGRES_HOST'),
+        'PORT': os.getenv('REPLIT_POSTGRES_PORT', '5432'),
     }
 }
 
