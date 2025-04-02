@@ -1,0 +1,13 @@
+ => => extracting sha256:ee7d78be1eb92caf6ae84fc3af736b23eca018d5dedc967ae5bdee6d7082403b                                                                                                                                                0.0s
+ => [backend 2/6] WORKDIR /app                                                                                                                                                                                                           9.0s
+ => [backend 3/6] COPY pyproject.toml .                                                                                                                                                                                                  2.8s
+ => [backend 4/6] COPY backend/ ./backend/                                                                                                                                                                                               2.2s
+ => [frontend 2/5] WORKDIR /app                                                                                                                                                                                                          1.5s
+ => CANCELED [backend 5/6] RUN pip install -U pip                                                                                                                                                                                        8.8s
+ => [frontend 3/5] COPY frontend/package*.json ./frontend/                                                                                                                                                                               2.0s
+ => ERROR [frontend 4/5] RUN cd frontend && npm install                                                                                                                                                                                  2.7s
+------
+ > [frontend 4/5] RUN cd frontend && npm install:
+2.147 /bin/sh: 1: cd: can't cd to frontend
+------
+failed to solve: process "/bin/sh -c cd frontend && npm install" did not complete successfully: exit code: 2
