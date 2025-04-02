@@ -15,7 +15,7 @@ run = ["python3", "main.py"]
 deploymentTarget = "cloudrun"
 
 [workflows]
-runButton = "Run Django"
+runButton = "Dev"
 
 [[workflows.workflow]]
 name = "Run Django"
@@ -39,6 +39,19 @@ args = "cd backend && python main.py runserver 0.0.0.0:5000"
 name = "Run Frontend"
 author = 22854231
 mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd frontend && npm start"
+
+[[workflows.workflow]]
+name = "Dev"
+author = 22854231
+mode = "parallel"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd backend && python main.py migrate_schemas --shared && python main.py runserver 0.0.0.0:5000"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
