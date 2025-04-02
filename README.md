@@ -8,6 +8,19 @@ Uma plataforma educacional multitenancy para criação e venda de cursos online.
 - Python 3.11+
 - PostgreSQL (Replit PostgreSQL Database)
 - Node.js e npm (para o frontend)
+- Docker e Docker Compose (para desenvolvimento local)
+
+## Execução Local com Docker
+
+Para executar o projeto localmente com Docker:
+
+```bash
+# Construir e iniciar os containers
+docker-compose up --build
+
+# Acessar o backend em http://localhost:5000
+# Acessar o frontend em http://localhost:3000
+```
 
 ## Configuração do Ambiente
 

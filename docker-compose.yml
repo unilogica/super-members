@@ -1,0 +1,53 @@
+
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=supermembers
+      - POSTGRES_USER=supermembers
+      - POSTGRES_PASSWORD=supermembers
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    command: >
+      bash -c "cd backend &&
+               python main.py migrate_schemas --shared &&
+               python main.py runserver 0.0.0.0:5000"
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - REPLIT_DB_NAME=supermembers
+      - REPLIT_DB_USER=supermembers
+      - REPLIT_DB_PASS=supermembers
+      - REPLIT_DB_HOST=db
+      - REPLIT_DB_PORT=5432
+      - SECRET_KEY=local_dev_secret_key
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    command: bash -c "cd frontend && npm start"
+    volumes:
+      - .:/app
+      - node_modules:/app/frontend/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+
+volumes:
+  postgres_data:
+  node_modules:

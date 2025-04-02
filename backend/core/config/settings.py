@@ -84,10 +84,10 @@ import os
 DATABASES = {
     'default': {
         'ENGINE': 'django_tenants.postgresql_backend',
-        'NAME': os.getenv('REPLIT_DB_NAME'),
-        'USER': os.getenv('REPLIT_DB_USER'),
-        'PASSWORD': os.getenv('REPLIT_DB_PASS'),
-        'HOST': os.getenv('REPLIT_DB_HOST'),
+        'NAME': os.getenv('REPLIT_DB_NAME', 'supermembers'),
+        'USER': os.getenv('REPLIT_DB_USER', 'supermembers'),
+        'PASSWORD': os.getenv('REPLIT_DB_PASS', 'supermembers'),
+        'HOST': os.getenv('REPLIT_DB_HOST', 'db'),
         'PORT': os.getenv('REPLIT_DB_PORT', '5432'),
     }
 }
