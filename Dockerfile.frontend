@@ -3,12 +3,12 @@ FROM node:16
 
 WORKDIR /app
 
-COPY frontend/package*.json ./frontend/
+COPY frontend/package*.json ./
 
-RUN cd frontend && npm install
+RUN npm install
 
-COPY frontend/ ./frontend/
+COPY frontend/ ./
 
 EXPOSE 3000
 
-CMD ["cd", "frontend", "&&", "npm", "start"]
+CMD ["npm", "start"]
