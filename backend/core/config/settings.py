@@ -22,28 +22,22 @@ ALLOWED_HOSTS = ['*']
 TENANT_MODEL = "core.tenant.Client"
 TENANT_DOMAIN_MODEL = "core.tenant.Domain"
 
-SHARED_APPS = (
+SHARED_APPS = [
     'django_tenants',
     'core.tenant',
-    'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.auth',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
-)
+]
 
-TENANT_APPS = (
+TENANT_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
     'courses',
     'subscriptions',
-)
+]
 
 INSTALLED_APPS = SHARED_APPS + TENANT_APPS
 
