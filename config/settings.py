@@ -11,17 +11,21 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
+    'django_tenants',
+    'tenant',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_tenants',
     'rest_framework',
     'corsheaders',
     'users',
 ]
+
+TENANT_MODEL = "tenant.Client"
+TENANT_DOMAIN_MODEL = "tenant.Domain"
 
 MIDDLEWARE = [
     'django_tenants.middleware.main.TenantMainMiddleware',
