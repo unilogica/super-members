@@ -19,8 +19,8 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-TENANT_MODEL = "core.tenant.Client"
-TENANT_DOMAIN_MODEL = "core.tenant.Domain"
+TENANT_MODEL = "tenant.Client"
+TENANT_DOMAIN_MODEL = "tenant.Domain"
 
 SHARED_APPS = [
     'django_tenants',
